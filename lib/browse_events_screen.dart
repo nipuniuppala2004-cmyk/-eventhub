@@ -1,3 +1,4 @@
+import 'event_details_screen.dart';
 import 'package:flutter/material.dart';
 import 'event_model.dart';
 import 'mock_events.dart';
@@ -98,7 +99,14 @@ class _BrowseEventsScreenState extends State<BrowseEventsScreen> {
                       event.category + ' - ' + event.location,
                     ),
                     isThreeLine: true,
-                    onTap: () {},
+                       onTap: () {
+     Navigator.push(
+       context,
+       MaterialPageRoute(
+         builder: (context) => EventDetailsScreen(event: event),
+       ),
+     );
+   },
                   ),
                 );
               },
