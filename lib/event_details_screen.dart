@@ -1,3 +1,4 @@
+import 'booking_form_screen.dart';
 import 'package:flutter/material.dart';
 import 'event_model.dart';
 
@@ -96,11 +97,14 @@ class EventDetailsScreen extends StatelessWidget {
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.all(16.0),
         child: ElevatedButton(
-          onPressed: () {
-            ScaffoldMessenger.of(context).showSnackBar(
-              const SnackBar(content: Text('Booking flow coming soon!')),
-            );
-          },
+             onPressed: () {
+     Navigator.push(
+       context,
+       MaterialPageRoute(
+         builder: (context) => BookingFormScreen(event: event),
+       ),
+     );
+   },
           style: ElevatedButton.styleFrom(
             padding: const EdgeInsets.symmetric(vertical: 14),
           ),
