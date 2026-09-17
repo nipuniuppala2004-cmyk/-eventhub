@@ -9,7 +9,7 @@ class AuthStore {
     return users.any((u) => u.email.toLowerCase() == email.toLowerCase());
   }
 
-  static String? signUp(String name, String email, String password) {
+  static String? signUp(String name, String email, String password, bool isOrganizer) {
     if (emailExists(email)) {
       return 'An account with this email already exists';
     }
@@ -18,6 +18,7 @@ class AuthStore {
       name: name,
       email: email,
       password: password,
+      isOrganizer: isOrganizer,
     );
     users.add(newUser);
     currentUser = newUser;

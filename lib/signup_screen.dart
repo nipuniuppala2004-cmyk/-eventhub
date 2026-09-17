@@ -16,6 +16,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   final nameController = TextEditingController();
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
+  bool isOrganizer = false;
 
   @override
   void dispose() {
@@ -31,6 +32,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
         nameController.text.trim(),
         emailController.text.trim(),
         passwordController.text.trim(),
+        isOrganizer,
       );
 
       if (error != null) {
@@ -103,7 +105,18 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   return null;
                 },
               ),
-              const SizedBox(height: 24),
+              const SizedBox(height: 12),
+              CheckboxListTile(
+                value: isOrganizer,
+                onChanged: (value) {
+                  setState(() {
+                    isOrganizer = value ?? false;
+                  });
+                },
+                title: const Text('I am an event organizer'),
+                controlAffinity: ListTileControlAffinity.leading,
+              ),
+              const SizedBox(height: 12),
               ElevatedButton(
                 onPressed: _submit,
                 style: ElevatedButton.styleFrom(
