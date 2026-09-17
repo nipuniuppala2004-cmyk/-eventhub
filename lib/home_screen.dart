@@ -1,3 +1,4 @@
+import 'profile_screen.dart';
 import 'package:flutter/material.dart';
 import 'browse_events_screen.dart';
 import 'my_bookings_screen.dart';
@@ -12,10 +13,11 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   int _selectedIndex = 0;
 
-  final List<Widget> _screens = const [
-    BrowseEventsScreen(),
-    MyBookingsScreen(),
-  ];
+     final List<Widget> _screens = const [
+     BrowseEventsScreen(),
+     MyBookingsScreen(),
+     ProfileScreen(),
+   ];
 
   @override
   Widget build(BuildContext context) {
@@ -28,16 +30,20 @@ class _HomeScreenState extends State<HomeScreen> {
             _selectedIndex = index;
           });
         },
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.event),
-            label: 'Events',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.confirmation_number),
-            label: 'My Bookings',
-          ),
-        ],
+           items: const [
+     BottomNavigationBarItem(
+       icon: Icon(Icons.event),
+       label: 'Events',
+     ),
+     BottomNavigationBarItem(
+       icon: Icon(Icons.confirmation_number),
+       label: 'My Bookings',
+     ),
+     BottomNavigationBarItem(
+       icon: Icon(Icons.person),
+       label: 'Profile',
+     ),
+   ],
       ),
     );
   }
