@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'browse_events_screen.dart';
+import 'home_screen.dart';
 
 void main() {
   runApp(const EventHubApp());
@@ -16,7 +16,7 @@ class EventHubApp extends StatelessWidget {
         primarySwatch: Colors.deepPurple,
         useMaterial3: true,
       ),
-      home: const BrowseEventsScreen(),
+         home: const HomeScreen(),
     );
   }
 }
